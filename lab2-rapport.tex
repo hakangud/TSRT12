@@ -46,5 +46,59 @@ Med hjälp av ovanstående utmätningar och krav kunde följande konstanter ber�
 
 \newpage
 \tableofcontents
+\newpage
+
+\section{Inledning}
+
+Laborationen är den andra laborationen i kursen reglerteknik(TSRT12). \\
+Som hjälp för att lösa uppgifterna i laborationen användes förutom kurslitteraturen olika datorprogram. 
+\\\\
+Två ekvationer ges också ur Lab-PM som beskriver överföringsfunktionen hos en enkeltank samt överföringsfunktionen hos en dubbeltank.
+\\
+\begin{equation}
+  G_{enkel}(s)=\frac{K_{enkel}}{(sT+1)}
+\end{equation}
+\begin{equation}
+  G_{dubbel}(s)=\frac{K_{dubbel}}{(sT+1)^2}
+\end{equation}
+
+\subsection{Variabeldefinition}
+
+Variablerna som används i laborationen defineras nedan.
+\\\\
+\begin{tabular}{l l l}
+  $\delta_{u}(t)$ & Avvikelse från arbetspunkt & (V) \\
+  $K_{enkel}$ & Proportionalitetskonstant (enkeltank) & ($cm^3/V$) \\
+  $K_{dubbel}$ & Proportionalitetskonstant (dubbeltank) & ($cm^3/V$)
+\end{tabular}
+
+\section{Bestämma $K_{dubbel}$}
+
+Överföringsfunktion (2) används.
+\\
+\begin{equation}
+  G_{dubbel}(s)=\frac{K_{dubbel}}{(sT+1)^2}
+\end{equation}
+Insignalen får vara ett steg. Där $c$ är en godtycklig konstant
+\\
+\begin{equation*}
+\delta_{u}(s)=\begin{cases}
+  c & \text{t $\geq$ 0}  \\
+  0 & \text{t $<$ 0} 
+\end{cases}
+\end{equation*}
+
+\section{Slutsats}
+
+Det slutgiltiga uttrycket för regulatorn är:
+\\
+\begin{equation*}
+  F(s)=0.52\frac{10.23+1}{1.33s+1} \frac{37.6s+1}{37.6s+0.6816}
+\end{equation*}
+\\
+Några problem som stöttes på under labben var bland annat att vissa av pumparna fungerade dåligt och gav konstiga resultat.
+Antagligen så berodde detta på att sensorerna som mätte vattennivån inte fungerade som de skulle.
+Hade utrustningen fungerat bättre så hade vi kunna nått ett bättre resultat på mindre tid.
+Dock så är ju inte alla system som man kan tänkas stöta på ute i arbetslivet helt perfekta heller. 
 
 \end{document}
