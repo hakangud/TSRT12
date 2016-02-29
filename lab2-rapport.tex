@@ -127,7 +127,7 @@ En förstärkning $K$ införs så att
 \begin{equation}
   K\frac{\tau_Ds+1}{\beta\tau_Ds+1}G(s)
 \end{equation}
-har förstärkning 1 vid $\omega = \omega_c = 0.266$ och kan nu räkna ut $K$ enligt.
+har förstärkning 1 vid $\omega = \omega_c$ och kan nu räkna ut $K$ enligt.
 \\
 \begin{equation}
   K|G(\omega_ci|\frac{1}{\sqrt{\beta}}=1
@@ -139,6 +139,18 @@ För att inte höja lågfrekvensförstärkningen allt för mycket så används e
 \\
 \begin{equation}
   F_{lag}(s)=\frac{\tau_Is+1}{\tau_Is+\gamma}
+\end{equation}
+\\
+Variabeln $\gamma$ bestäms med hjälp av slutvärdesteoremet genom följande ekvation.
+\\
+\begin{equation}
+  e_1=\frac{1}{\lim_{s \to 0}K\frac{\tau_Ds+1}{\beta\tau_Ds+1}G(s)s}
+\end{equation}
+\\
+Variabeln $\tau_I$ kan bestämmas genom ekvationen.
+\\
+\begin{equation}
+  \tau_I=\frac{10}{\omega_c}
 \end{equation}
 
 \section{Resultat}
