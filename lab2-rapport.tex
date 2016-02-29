@@ -79,7 +79,13 @@ Teorin för att bestämma konstanterna $T$ och $K_{dubbel}$ för dubbeltankssyst
 
 \subsection{Bestämma $T$}
 
-%TODO lägga in uträkning för T 
+%TODO lägga in uträkning för T
+\begin{equation*}
+  G_{enkel}(s)=\frac{K_{enkel}}{sT+1} <=>   
+  H_{1}(s)=\frac{K_{enkel}U(s)}{sT+1} =>
+  h_{1}(t) = CK_{enkel}(1-e^{\frac{-t}{T}})
+\end{equation*}
+
 
 \subsection{Bestämma $K_{dubbel}$}
 
@@ -100,6 +106,19 @@ Insignalen får vara ett steg. Där $c$ är en godtycklig konstant
 
 
 %TODO lägga in uträkning för Kdubbel
+\begin{equation*}
+  G_{dubbel}(s)=\frac{K_{dubbel}}{(sT+1)^2} <=> Y(s)=\frac{K_{dubbel}}{(sT+1)^2} \frac{C}{s} <=>
+\end{equation*}
+\begin{equation*}
+  Y(s)=\frac{CK_{dubbel}}{s}-\frac{CTK_{dubbel}}{sT+1}-\frac{cTK_{dubbel}}{(sT+1)^2} => L^{-1} =>
+\end{equation*}
+\begin{equation}
+  h_{2}(t)=CK_{dubbel}(1-e^{\frac{-t}{T}}-\frac{t}{T}e^{\frac{-t}{T}}
+\end{equation}
+\begin{equation}
+  \lim_{t \to \infty} h_{2}(t)=CK_{dubbel}
+\end{equation}
+
 
 \section{Utförande}
 
