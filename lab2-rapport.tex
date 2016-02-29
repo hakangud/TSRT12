@@ -69,16 +69,26 @@ Variablerna som används i laborationen defineras nedan.
 \begin{tabular}{l l l}
   $\delta_{u}(t)$ & Avvikelse från arbetspunkt & (V) \\
   $K_{enkel}$ & Proportionalitetskonstant (enkeltank) & ($cm^3/V$) \\
-  $K_{dubbel}$ & Proportionalitetskonstant (dubbeltank) & ($cm^3/V$)
+  $K_{dubbel}$ & Proportionalitetskonstant (dubbeltank) & ($cm^3/V$) \\
+  $\omega_c$ & Skärfrekvens & ($rad/s$)
 \end{tabular}
 
-\section{Bestämma $K_{dubbel}$}
+\section{Teori}
+
+Teorin för att bestämma konstanterna $T$ och $K_{dubbel}$ för dubbeltankssystemet beskrivs nedan. 
+
+\subsection{Bestämma $T$}
+
+%TODO lägga in uträkning för T 
+
+\subsection{Bestämma $K_{dubbel}$}
 
 Överföringsfunktion (2) används.
 \\
 \begin{equation}
   G_{dubbel}(s)=\frac{K_{dubbel}}{(sT+1)^2}
 \end{equation}
+
 Insignalen får vara ett steg. Där $c$ är en godtycklig konstant
 \\
 \begin{equation*}
@@ -87,18 +97,73 @@ Insignalen får vara ett steg. Där $c$ är en godtycklig konstant
   0 & \text{t $<$ 0} 
 \end{cases}
 \end{equation*}
+\\
+
+%TODO lägga in uträkning för Kdubbel
+
+\section{Utförande}
+
+
+
+\subsection{Bestämma $F_{lead}$}
+
+För att höja faskurvan vid $\omega_{c}$ används en fasavancerande länk, $F_{lead}$.
+\\
+\begin{equation}
+  F_{lead}(s)=K\frac{\tau_{D}s+1}{\beta\tau_{D}s+1}
+\end{equation}
+\\
+Variabeln $\beta$ bestäms genom att titta på faskurvan för $G(s)$ då $\omega = 0.266$, alltså värdet på $\omega_c$. 
+Med hjälp av figur 5.13 och 5.15 i kurslitteraturen \cite{kb} kan $\beta$ bestämmas.
+\\
+När $\beta$ är bestämd så kan vi bestämma $\tau_D$ enligt.
+\\
+\begin{equation}
+  \tau_D=\frac{1}{\omega_c\sqrt{\beta}}
+\end{equation}
+\\
+En förstärkning $K$ införs så att 
+\\
+\begin{equation}
+  K\frac{\tau_Ds+1}{\beta\tau_Ds+1}G(s)
+\end{equation}
+har förstärkning 1 vid $\omega = \omega_c = 0.266$ och kan nu räkna ut $K$ enligt.
+\\
+\begin{equation}
+  K|G(\omega_ci|\frac{1}{\sqrt{\beta}}=1
+\end{equation}
+
+\subsection{Bestämma $F_{lag}$}
+
+För att inte höja lågfrekvensförstärkningen allt för mycket så används en fasretarderande länk, $F_{lag}$.
+\\
+\begin{equation}
+  F_{lag}(s)=\frac{\tau_Is+1}{\tau_Is+\gamma}
+\end{equation}
+
+\section{Resultat}
+
+
 
 \section{Slutsats}
 
-Det slutgiltiga uttrycket för regulatorn är:
+Det slutgiltiga uttrycket för regulatorn blir:
 \\
 \begin{equation*}
   F(s)=0.52\frac{10.23+1}{1.33s+1} \frac{37.6s+1}{37.6s+0.6816}
 \end{equation*}
 \\
+
 Några problem som stöttes på under labben var bland annat att vissa av pumparna fungerade dåligt och gav konstiga resultat.
 Antagligen så berodde detta på att sensorerna som mätte vattennivån inte fungerade som de skulle.
 Hade utrustningen fungerat bättre så hade vi kunna nått ett bättre resultat på mindre tid.
 Dock så är ju inte alla system som man kan tänkas stöta på ute i arbetslivet helt perfekta heller. 
+
+\begin{thebibliography}{9}
+  \bibitem{kb}
+    T. Glad, L. Ljung. 
+    \emph{Reglerteknik - Grundläggande teori}.
+    2014.
+\end{thebibliography}
 
 \end{document}
