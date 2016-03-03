@@ -2,9 +2,10 @@
 \usepackage[swedish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{graphicx}
 
 \title{Labrapport - TSRT12}
-\author{Håkan Gudmundsson, D3b \\ Jacob Johansson, D3b}
+\author{Håkan Gudmundsson , D3b \\ Jacob Johansson, D3b}
 \date{\today}
 
 \begin{document}
@@ -73,19 +74,29 @@ Variablerna som används i laborationen defineras nedan.
   $\omega_c$ & Skärfrekvens & ($rad/s$)
 \end{tabular}
 
+\subsection{Systembeskrivning}
+
+\includegraphics[scale = 0.5]{skiss}
+\\\
+Systemet som visas i figur 1 består utav två tankar och en pump.
+Pumpen får en insignal som avgör hur mycket vatten som flödar igenom qin. Vatten tank 1 har ett utflöde q1 som rinner ner i tank 2. \\\
+
+Laborationen går ut på att höja vatten nivån i tank 2 efter kriterierna som beskrivs i sammanfattningen igenom att bara styra insignalen till pumpen. 
+
 \section{Teori}
 
 Teorin för att bestämma konstanterna $T$ och $K_{dubbel}$ för dubbeltankssystemet beskrivs nedan. 
 
 \subsection{Bestämma $T$}
 
-%TODO lägga in uträkning för T
+%TODO lägga in uträkning för T 
+U(s) får vara ett steg för godtycklig konstant.
+
 \begin{equation*}
   G_{enkel}(s)=\frac{K_{enkel}}{sT+1} <=>   
   H_{1}(s)=\frac{K_{enkel}U(s)}{sT+1} =>
   h_{1}(t) = CK_{enkel}(1-e^{\frac{-t}{T}})
 \end{equation*}
-
 
 \subsection{Bestämma $K_{dubbel}$}
 
@@ -171,10 +182,12 @@ Variabeln $\tau_I$ kan bestämmas genom ekvationen
 
 \section{Resultat}
 
+\subsection{Bestämma T och Kdubbel med tester}
+Vi började igenom att hitta den insignalen U(s) till pumpen då vattennivån i tank 1 ligger stabilt på 10cm vilket är 0.52V. Sedan ökade vi insignalen med 0.1V och mätte hur lång tid det tog för vattennivån att nå 0.66% av sitt nya stabila värde. Detta tog 22s vilket ger T ett värde på 22. \\\
+\\\\\
+För att räkna ut Kdubbel mätte vi ifrån tank 2 när vattennivån var på 10cm och ökade insignalen med 0.1V. Vattennivån ökade med 2.5cm vilket ger att Förstärkningen Kdubbel har värdet 25.
 
-
-\section{Slutsats}
-
+\subsection{uttryck och grafer}
 Det slutgiltiga uttrycket för systemet blir:
 
 \begin{equation*}
@@ -185,6 +198,20 @@ Det slutgiltiga uttrycket för regulatorn blir:
 \begin{equation*}
   F(s)=0.52\frac{10.23+1}{1.33s+1} \frac{37.6s+1}{37.6s+0.6816}
 \end{equation*}
+
+\includegraphics[scale=1]{bodeG}
+Bodediagram över G(s)
+
+\includegraphics{bodeFG}
+Bodediagram över FG
+
+\includegraphics{bodemagG}
+Bodemag över G0
+
+\includegraphics[scale=1]{lab2-the-best}
+Bild över en lyckad stigtid
+
+\section{Slutsats}
 
 
 Några problem som stöttes på under labben var bland annat att vissa av pumparna fungerade dåligt och gav konstiga resultat.
