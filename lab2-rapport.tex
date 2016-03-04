@@ -11,6 +11,7 @@
 \begin{document}
 
 \maketitle
+\thispagestyle{empty}
 \newpage
 
 \begin{abstract}
@@ -42,13 +43,16 @@ Med hjälp av ovanstående utmätningar och krav kunde följande konstanter ber�
   $\tau_{I} = 37.60$ \\
   $\gamma = 0.6816$ 
 \end{tabular}
-\\\\
 \end{abstract}
-
+\thispagestyle{empty}
 \newpage
+
+\setcounter{page}{0}
 \tableofcontents
+\thispagestyle{empty}
 \newpage
 
+\setcounter{page}{1}
 \section{Inledning}
 
 Laborationen är den andra laborationen i kursen reglerteknik(TSRT12). \\
@@ -76,12 +80,15 @@ Variablerna som används i laborationen defineras nedan.
 
 \subsection{Systembeskrivning}
 
-\includegraphics[scale = 0.5]{skiss}
-\\\
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[scale = 0.5]{Skiss}
+\end{figure}
+
 Systemet som visas i figur 1 består utav två tankar och en pump.
 Pumpen får en insignal som avgör hur mycket vatten som flödar igenom qin. Vatten tank 1 har ett utflöde q1 som rinner ner i tank 2. \\\
 
-Laborationen går ut på att höja vatten nivån i tank 2 efter kriterierna som beskrivs i sammanfattningen igenom att bara styra insignalen till pumpen. 
+Laborationen går ut på att höja vattennivån i tank 2 efter kriterierna som beskrivs i sammanfattningen genom att styra insignalen till pumpen. 
 
 \section{Teori}
 
@@ -89,12 +96,11 @@ Teorin för att bestämma konstanterna $T$ och $K_{dubbel}$ för dubbeltankssyst
 
 \subsection{Bestämma $T$}
 
-%TODO lägga in uträkning för T 
 U(s) får vara ett steg för godtycklig konstant.
 
 \begin{equation*}
-  G_{enkel}(s)=\frac{K_{enkel}}{sT+1} <=>   
-  H_{1}(s)=\frac{K_{enkel}U(s)}{sT+1} =>
+  G_{enkel}(s)=\frac{K_{enkel}}{sT+1} \Leftrightarrow   
+  H_{1}(s)=\frac{K_{enkel}U(s)}{sT+1} \Rightarrow
   h_{1}(t) = CK_{enkel}(1-e^{\frac{-t}{T}})
 \end{equation*}
 
@@ -109,23 +115,24 @@ U(s) får vara ett steg för godtycklig konstant.
 Insignalen får vara ett steg. Där $c$ är en godtycklig konstant
 
 \begin{equation*}
-\delta_{u}(s)=\begin{cases}
+  \delta_{u}(s)=\begin{cases}
   c & \text{t $\geq$ 0}  \\
   0 & \text{t $<$ 0} 
 \end{cases}
 \end{equation*}
 
+\begin{equation*}
+  G_{dubbel}(s)=\frac{K_{dubbel}}{(sT+1)^2} \Leftrightarrow Y(s)=\frac{K_{dubbel}}{(sT+1)^2} \frac{C}{s} \Leftrightarrow
+\end{equation*}
 
-%TODO lägga in uträkning för Kdubbel
 \begin{equation*}
-  G_{dubbel}(s)=\frac{K_{dubbel}}{(sT+1)^2} <=> Y(s)=\frac{K_{dubbel}}{(sT+1)^2} \frac{C}{s} <=>
+  Y(s)=\frac{CK_{dubbel}}{s}-\frac{CTK_{dubbel}}{sT+1}-\frac{cTK_{dubbel}}{(sT+1)^2} \Rightarrow L^{-1} \Rightarrow
 \end{equation*}
-\begin{equation*}
-  Y(s)=\frac{CK_{dubbel}}{s}-\frac{CTK_{dubbel}}{sT+1}-\frac{cTK_{dubbel}}{(sT+1)^2} => L^{-1} =>
-\end{equation*}
+
 \begin{equation}
   h_{2}(t)=CK_{dubbel}(1-e^{\frac{-t}{T}}-\frac{t}{T}e^{\frac{-t}{T}}
 \end{equation}
+
 \begin{equation}
   \lim_{t \to \infty} h_{2}(t)=CK_{dubbel}
 \end{equation}
@@ -137,15 +144,15 @@ Insignalen får vara ett steg. Där $c$ är en godtycklig konstant
 
 \subsection{Bestämma $F_{lead}$}
 
-För att höja faskurvan vid $\omega_{c}$ används en fasavancerande länk, $F_{lead}$.
+För att höja faskurvan vid $\omega_{c}$, då ett krav på stigtid finns, används en fasavancerande länk, $F_{lead}$.
 
 \begin{equation}
   F_{lead}(s)=K\frac{\tau_{D}s+1}{\beta\tau_{D}s+1}
 \end{equation}
 
 Variabeln $\beta$ bestäms genom att läsa av fasen i bode-diagrammet för $G(s)$ då $\omega = 0.266$, alltså värdet på $\omega_c$.
-Ur figur kan sedan fasmarginalen  
-Med hjälp av figur 5.13 och 5.15 i kurslitteraturen \cite{kb} kan $\beta$ bestämmas.
+Då fås ett värde på fasförskjutningen och fasökningen $\varphi_{max}$ kan beräknas.
+Ur figur 5.13 i kurslitteraturen \cite{kb} kan, med hjälp av $\varphi_{max}$, $\beta$ sedan läsas ut.
 
 När $\beta$ är bestämd så kan vi bestämma $\tau_D$ enligt.
 
@@ -160,7 +167,7 @@ En förstärkning $K$ införs så att
 har förstärkning 1 vid $\omega = \omega_c$ och kan nu räkna ut $K$ enligt.
 
 \begin{equation}
-  K|G(\omega_ci|\frac{1}{\sqrt{\beta}}=1
+  K|G(\omega_ci)|\frac{1}{\sqrt{\beta}}=1
 \end{equation}
 
 \subsection{Bestämma $F_{lag}$}
@@ -184,8 +191,8 @@ Variabeln $\tau_I$ kan bestämmas genom ekvationen
 \section{Resultat}
 
 \subsection{Bestämma T och Kdubbel med tester}
-Vi började igenom att hitta den insignalen U(s) till pumpen då vattennivån i tank 1 ligger stabilt på 10cm vilket är 0.52V. Sedan ökade vi insignalen med 0.1V och mätte hur lång tid det tog för vattennivån att nå 0.66% av sitt nya stabila värde. Detta tog 22s vilket ger T ett värde på 22. \\\
-\\\\\
+Vi började igenom att hitta den insignalen U(s) till pumpen då vattennivån i tank 1 ligger stabilt på 10cm vilket är 0.52V. Sedan ökade vi insignalen med 0.1V och mätte hur lång tid det tog för vattennivån att nå 0.66\% av sitt nya stabila värde. Detta tog 22s vilket ger T ett värde på 22. \\
+\\\\
 För att räkna ut Kdubbel mätte vi ifrån tank 2 när vattennivån var på 10cm och ökade insignalen med 0.1V. Vattennivån ökade med 2.5cm vilket ger att Förstärkningen Kdubbel har värdet 25.
 
 \subsection{uttryck och grafer}
@@ -200,20 +207,35 @@ Det slutgiltiga uttrycket för regulatorn blir:
   F(s)=0.52\frac{10.23+1}{1.33s+1} \frac{37.6s+1}{37.6s+0.6816}
 \end{equation*}
 
-\includegraphics[scale=1]{bodeG}
-Bodediagram över G(s)
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[scale=1]{bodeG}
+  \caption{Bodediagram över $G(s)$}
+\end{figure}
+\newpage
 
-\includegraphics{bodeFG}
-Bodediagram över FG
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{bodeFG}
+  \caption{Bodediagram över $FG$}
+\end{figure}
+\newpage
 
-\includegraphics{bodemagG}
-Bodemag över G0
+\begin{figure}[!ht]
+  \centering
+  \includegraphics{bodemagG}
+  \caption{Amplitudkurvan för $G_0$}
+\end{figure}
+\newpage
 
-\includegraphics[scale=1]{lab2-the-best}
-Bild över en lyckad stigtid
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[scale=1]{lab2-the-best}  
+  \caption{Bevis på att regulatorn uppfyller ställda krav}
+\end{figure}
+\newpage
 
 \section{Slutsats}
-
 
 Några problem som stöttes på under labben var bland annat att vissa av pumparna fungerade dåligt och gav konstiga resultat.
 Antagligen så berodde detta på att sensorerna som mätte vattennivån inte fungerade som de skulle.
