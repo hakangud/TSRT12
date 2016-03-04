@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{float}
 
 \title{Labrapport - TSRT12}
 \author{Håkan Gudmundsson , D3b \\ Jacob Johansson, D3b}
@@ -180,7 +181,7 @@ För att inte höja lågfrekvensförstärkningen allt för mycket så används e
 Variabeln $\gamma$ bestäms med hjälp av slutvärdesteoremet genom följande ekvation.
 
 \begin{equation}
-  e_1=\frac{1}{\lim_{s \to 0}K\frac{\tau_Ds+1}{\beta\tau_Ds+1}G(s)s}
+  e_1=\frac{1}{\lim_{s \to 0}K\frac{\tau_Ds+1}{\beta\tau_Ds+1}\frac{\tau_Is+1}{\tau_Is+\gamma}G(s)}
 \end{equation}
 Variabeln $\tau_I$ kan bestämmas genom ekvationen
 
@@ -207,33 +208,29 @@ Det slutgiltiga uttrycket för regulatorn blir:
   F(s)=0.52\frac{10.23+1}{1.33s+1} \frac{37.6s+1}{37.6s+0.6816}
 \end{equation*}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
   \includegraphics[scale=1]{bodeG}
   \caption{Bodediagram över $G(s)$}
 \end{figure}
-\newpage
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
   \includegraphics{bodeFG}
   \caption{Bodediagram över $FG$}
 \end{figure}
-\newpage
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
   \includegraphics{bodemagG}
   \caption{Amplitudkurvan för $G_0$}
 \end{figure}
-\newpage
 
-\begin{figure}[ht!]
+\begin{figure}[H]
   \centering
   \includegraphics[scale=1]{lab2-the-best}  
   \caption{Bevis på att regulatorn uppfyller ställda krav}
 \end{figure}
-\newpage
 
 \section{Slutsats}
 
